@@ -1,3 +1,6 @@
+"""
+LEARN
+"""
 fruits = ["pomme", "banane", "orange"]
 
 fruits.append("fraise")
@@ -8,4 +11,3 @@ print(fruits)
 
 for fruit in fruits:
     print(fruit)
-    

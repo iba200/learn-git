@@ -1,7 +1,11 @@
+"""
+learn boucle :for while
+"""
+
 for i in range(1,6):
     print(i)
 print("______________________________")
-compteur = 0
-while compteur < 6:
-    print(compteur)
-    compteur += 1
+COMPTEUR = 0
+while COMPTEUR < 6:
+    print(COMPTEUR)
+    COMPTEUR += 1

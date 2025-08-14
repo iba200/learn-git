@@ -1,6 +1,7 @@
-# projet : verificateur de nombre si il est positive , negative, ou zero
-
-# utilisateur entre un nombre par la fonction input()
+"""
+projet : verificateur de nombre si il est positive , negative, ou zero
+utilisateur entre un nombre par la fonction input()
+"""
 nombres_str = input("Entrer un nombre: ").strip()
 
 
