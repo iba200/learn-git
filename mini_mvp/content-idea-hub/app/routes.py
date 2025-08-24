@@ -8,9 +8,6 @@ from app.forms import IdeaForm
 bp = Blueprint('main', __name__)
 
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 
 @bp.route('/register', methods=['GET', 'POST'])
@@ -101,3 +98,4 @@ def delete_idea(id):
     db.session.commit()
     flash('Idea deleted!')
     return redirect(url_for('main.index'))
+
