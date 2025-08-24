@@ -1,0 +1,10 @@
+content-idea-hub/
+├── app/
+│   ├── __init__.py  # Config Flask app
+│   ├── models.py    # DB models (User, Idea)
+│   ├── routes.py    # API endpoints
+│   └── templates/   # HTML files
+├── migrations/      # Pour Alembic/DB
+├── config.py        # Secrets, DB URI
+├── run.py           # Lance l'app
+└── requirements.txt # Flask, etc.
