@@ -5,6 +5,11 @@
 <h2>Your Ideas</h2>
     <a href="{{ url_for('main.new_idea') }}" class="btn btn-success mb-3">Add New Idea</a>
     <a href="{{ url_for('main.logout') }}" class="btn btn-danger mb-3 float-end">Logout</a>
+    <form method="POST" class="mb-3">
+        {{ form.hidden_tag() }}
+        {{ form.tags(class="form-control d-inline w-50", placeholder="e.g., video,funny") }}
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
     <table class="table">
         <thead><tr><th>Title</th><th>Tags</th><th>Date</th><th>Actions</th></tr></thead>
         <tbody>

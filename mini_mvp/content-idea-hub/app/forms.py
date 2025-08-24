@@ -17,3 +17,7 @@ class IdeaForm(FlaskForm):
     description = TextAreaField('Description', validators=[Length(max=500)])
     tags = StringField('Tags (comma-separated)', validators=[Length(max=200)])
     submit = SubmitField('Save')
+
+class SearchForm(FlaskForm):
+    tags = StringField('Filter by Tags')
+    submit = SubmitField('Search')

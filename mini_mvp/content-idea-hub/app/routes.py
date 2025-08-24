@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, current_user, login_required
 from app import db, login_manager
 from app.models import User
-from app.forms import RegisterForm, LoginForm
+from app.forms import RegisterForm, LoginForm, SearchForm
 from app.models import Idea
 from app.forms import IdeaForm
 bp = Blueprint('main', __name__)
@@ -43,11 +43,17 @@ def logout():
     logout_user()
     return redirect(url_for('main.login'))
 
-@bp.route('/')
+@bp.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
-    ideas = Idea.query.filter_by(user_id=current_user.id).order_by(Idea.timestamp.desc()).all()
-    return render_template('index.html', title='Dashboard', ideas=ideas)
+    form = SearchForm()
+    ideas = Idea.query.filter_by(user_id=current_user.id)
+    if form.validate_on_submit() and form.tags.data:
+        tags = [t.strip() for t in form.tags.data.split(',')]
+        for tag in tags:
+            ideas = ideas.filter(Idea.tags.like(f'%{tag}%'))
+    ideas = ideas.order_by(Idea.timestamp.desc()).all()
+    return render_template('index.html', ideas=ideas, form=form)
 
 """
         [route for create,update and remove ideas] 
