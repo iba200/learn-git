@@ -36,4 +36,5 @@ def create_app(config_class=Config):
     login_manager.login_view = 'login'
 
     from app import routes
+    from app import models
     return app
